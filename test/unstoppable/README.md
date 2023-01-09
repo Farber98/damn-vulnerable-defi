@@ -42,6 +42,52 @@ You start with 100 DVT tokens in balance.
 
 # Attack explanation
 
-Challenge #1 - Unstoppable
+Our objective is to stop the pool from offering flash loans. If we dig the contract, we can find the next function that is providing the loans:
+
+```
+function flashLoan(uint256 borrowAmount) external nonReentrant {
+  require(borrowAmount > 0, "Must borrow at least one token");
+
+  uint256 balanceBefore = damnValuableToken.balanceOf(address(this));
+  require(balanceBefore >= borrowAmount, "Not enough tokens in pool");
+
+  // Ensured by the protocol via the `depositTokens` function
+  assert(poolBalance == balanceBefore);
+
+  damnValuableToken.transfer(msg.sender, borrowAmount);
+
+  IReceiver(msg.sender).receiveTokens(address(damnValuableToken), borrowAmount);
+
+  uint256 balanceAfter = damnValuableToken.balanceOf(address(this));
+  require(balanceAfter >= balanceBefore, "Flash loan hasn't been paid back");
+}
+```
+
+We can see that the loan will only be executed if:
+
+- borrowAmount > 0.
+- contractBalance > borrowAmount.
+- poolBalance == contractBalance.
+
+Let's check how poolBalance variable is defined and used:
+
+```
+uint256 public poolBalance;
+
+function depositTokens(uint256 amount) external nonReentrant {
+  require(amount > 0, "Must deposit at least one token");
+  // Transfer token from sender. Sender must have first approved them.
+  damnValuableToken.transferFrom(msg.sender, address(this), amount);
+  poolBalance = poolBalance + amount;
+}
+```
+
+So our candidate vulnerability is the assertion(poolBalance = balanceOf(address(this))). We could stop the flashLoan function by breaking the assertion. The assertion will be always mantained if we use depositTokens function to update the the balance of the smart contract. But nothing stops us from sending funds directly to the SC without using depositTokens function.
+
+In order to beat the level, we need to send tokens to the SC directly, bypassing depositTokens function.
 
 # Attack function
+
+```
+
+```
