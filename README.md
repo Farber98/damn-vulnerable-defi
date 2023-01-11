@@ -12,6 +12,7 @@ Visit [damnvulnerabledefi.xyz](https://damnvulnerabledefi.xyz)
 
 - #### 🚩 &nbsp;&nbsp;[Challenge 1: Unstoppable](https://github.com/Farber98/damn-vulnerable-defi/tree/master/test/unstoppable)
 - #### 🚩 &nbsp;&nbsp;[Challenge 2: Naive receiver](https://github.com/Farber98/damn-vulnerable-defi/tree/master/test/naive-receiver)
+- #### 🚩 &nbsp;&nbsp;[Challenge 3: Truster](https://github.com/Farber98/damn-vulnerable-defi/tree/master/test/truster)
 
 ## Disclaimer
 
