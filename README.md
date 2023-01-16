@@ -19,8 +19,9 @@ Visit [damnvulnerabledefi.xyz](https://damnvulnerabledefi.xyz)
 - #### 🚩 &nbsp;&nbsp;[Challenge 6: Selfie](https://github.com/Farber98/damn-vulnerable-defi/tree/master/test/selfie)
 
 - #### 🚩 &nbsp;&nbsp;[Challenge 7: Compromised](https://github.com/Farber98/damn-vulnerable-defi/tree/master/test/compromised)
-<!-- -
+
 - #### 🚩 &nbsp;&nbsp;[Challenge 8: Puppet](https://github.com/Farber98/damn-vulnerable-defi/tree/master/test/puppet)
+<!-- -
 - #### 🚩 &nbsp;&nbsp;[Challenge 9: Puppet v2](https://github.com/Farber98/damn-vulnerable-defi/tree/master/test/puppet-v2)
 - #### 🚩 &nbsp;&nbsp;[Challenge 10: Free rider](https://github.com/Farber98/damn-vulnerable-defi/tree/master/test/free-rider)
 - #### 🚩 &nbsp;&nbsp;[Challenge 11: Backdoor](https://github.com/Farber98/damn-vulnerable-defi/tree/master/test/backdoor)
